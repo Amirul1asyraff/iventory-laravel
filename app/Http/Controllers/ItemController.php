@@ -42,6 +42,8 @@ class ItemController extends Controller
     }
     public function edit(Item $item)
     {
+        $this->authorize('update', $item);
+
         $types = Type::all();
         $colors = Color::all();
         return view('item.edit', compact('item','types','colors'));
