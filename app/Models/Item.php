@@ -10,8 +10,9 @@ class Item extends Model
 
     protected $fillable = [
         'name',
-        'colors',
-        'types',
+        'color_id',
+        'type_id',
+        'quantity',
     ];
 
     public function color()
