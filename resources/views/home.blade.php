@@ -8,6 +8,7 @@
                 <div class="card-header">{{ __('Dashboard') }}
                     <div class="card-tools">
                         <a href="{{route('color.index')  }}" class="btn btn-primary">COLOR-MANAGEMENT</a>
+                        <a href="{{route('type.index')  }}" class="btn btn-primary">TYPE-MANAGEMENT</a>
                     </div>
                 </div>
 
