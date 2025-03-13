@@ -24,5 +24,14 @@ class Item extends Model
     {
         return $this->belongsTo(type::class);
     }
+    
+    public function scopeSearch($query, $search = null)
+    {
+        $query->when($search, function ($query, $search) {
+            $query->where('name', 'like', '%' . $search . '%');
+        });
+
+        return $query;
+    }
 
 }
