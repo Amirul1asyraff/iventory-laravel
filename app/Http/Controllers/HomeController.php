@@ -22,9 +22,10 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index(Request $request)
     {
-        $items = Item::latest() ->paginate(10);
+        $search= $request->search ?? null; //tertiary oppeartion
+        $items = Item::latest()->search($search)->paginate(10);
         return view('home' ,compact('items'));
     }
 }
