@@ -29,6 +29,7 @@ class ItemController extends Controller
 
         Item::create([
             'user_id' => auth()->id(),
+            'uuid' => \Str::uuid(),
             'name' => $request->name,
             'type_id' => $request->type,
             'color_id' => $request->color,
