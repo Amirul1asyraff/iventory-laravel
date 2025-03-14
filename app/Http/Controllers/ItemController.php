@@ -28,6 +28,7 @@ class ItemController extends Controller
         //   dd($request->all());
 
         Item::create([
+            'user_id' => auth()->id(),
             'name' => $request->name,
             'type_id' => $request->type,
             'color_id' => $request->color,

@@ -17,15 +17,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
-
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-        ]);
-
         User::create([
-            'name'=> 'amirul asyraff',
+            'name'=> 'amirul',
             'email'=> 'amirul@gmail.com',
             'password'=> bcrypt('password'),
         ]);
@@ -39,12 +32,12 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Item::create([
-            'user_id'=> User::where('name','amirul asyraff')->first()->id,
+            'user_id'=> User::where('name','amirul')->first()->id,
             'uuid'=> Str::uuid(),
             'name'=> 'Laptop',
             'type_id'=> Type::where('name','Electronics')->first()->id,
             'color_id'=> Color::where('name','Red')->first()->id,
-            'quantity'=> rand(1,10),
+            'quantity'=> rand(2,10),
         ]);
 
     }
