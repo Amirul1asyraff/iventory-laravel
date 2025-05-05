@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Item;
 use App\Models\Type;
 use App\Models\Color;
+use Illuminate\Support\Facades\Auth;
 
 class ItemController extends Controller
 {
@@ -29,11 +30,15 @@ class ItemController extends Controller
 
         Item::create([
             'user_id' => auth()->id(),
-            'uuid' => \Str::uuid(),
             'name' => $request->name,
             'type_id' => $request->type,
             'color_id' => $request->color,
             'quantity' => $request->quantity,
+        ]);
+        Auth::user()->items()->create([
+            'name' => $request->name,
+            'type_id' => $request->type,
+            ''=> $request->color,
         ]);
         return redirect()->route('home');
     }
